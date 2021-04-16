@@ -31,7 +31,6 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <stdarg.h>
-#include <stdbool.h>
 #include <errno.h>
 #include <string.h>
 #include <unistd.h>
@@ -1276,6 +1275,20 @@ WL_EXPORT const struct wl_interface *
 wl_global_get_interface(const struct wl_global *global)
 {
 	return global->interface;
+}
+
+/** Get the display object for the given global
+ *
+ * \param global The global object
+ * \return The display object the global is associated with.
+ *
+ * \memberof wl_global
+ * \since 1.20
+ */
+WL_EXPORT struct wl_display *
+wl_global_get_display(const struct wl_global *global)
+{
+	return global->display;
 }
 
 WL_EXPORT void *
