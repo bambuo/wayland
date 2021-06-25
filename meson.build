@@ -1,5 +1,5 @@
 project(
-	'wayland', 'c', 'cpp',
+	'wayland', 'c',
 	version: '1.19.90',
 	license: 'MIT',
 	meson_version: '>= 0.52.1',
@@ -84,7 +84,9 @@ subdir('src')
 if get_option('libraries')
 	subdir('cursor')
 	subdir('egl')
-	subdir('tests')
+	if get_option('tests')
+		subdir('tests')
+	endif
 	if get_option('documentation')
 		subdir('doc')
 	endif
